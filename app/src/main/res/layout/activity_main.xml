@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/login_id"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:paddingEnd="5dp"
+            android:paddingStart="5dp"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:inputType="number"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="50dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical"
+            android:text="退出"
+            android:textSize="12sp" />
+
+        <LinearLayout
+            android:id="@+id/test_group"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/see"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_vertical"
+                android:text="See"
+                android:textSize="12sp"
+                android:visibility="visible" />
+
+            <EditText
+                android:id="@+id/money"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:text="0.18"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/mark"
+                android:layout_width="60dp"
+                android:layout_height="45dp"
+                android:text="1122"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/transf"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:text="T" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/log_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#000000"
+        android:divider="@null"
+        android:scrollbars="none" />
+</LinearLayout>

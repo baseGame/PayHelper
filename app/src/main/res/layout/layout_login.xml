@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:hint="用户名" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:hint="密码"
+            android:inputType="textPassword" />
+
+        <RadioGroup
+            android:id="@+id/baseurlgroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/baseurl3"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:checked="true"
+                android:text="生产1：unionpay.1393111.com" />
+
+            <RadioButton
+                android:id="@+id/baseurl5"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:checked="true"
+                android:text="生产2：103.60.110.64" />
+
+            <RadioButton
+                android:id="@+id/baseurl1"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="茂盛：10.10.100.6:9001" />
+
+            <RadioButton
+                android:id="@+id/baseurl2"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="JX：10.10.101.14:8004" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="20dp"
+            android:text="登   录" />
+    </LinearLayout>
+</RelativeLayout>

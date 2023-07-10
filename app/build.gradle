@@ -1,0 +1,78 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion '28.0.3'
+    defaultConfig {
+        applicationId "com.tools.payhelper"
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 15
+        multiDexEnabled true
+        versionName "3.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        payhelper {
+            keyAlias 'payhelper'
+            keyPassword '12345678'
+            storeFile file('./signfile/payhelper.jks')
+            storePassword '12345678'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.payhelper
+            debuggable false
+            jniDebuggable false
+            renderscriptDebuggable false
+            pseudoLocalesEnabled false
+            zipAlignEnabled true
+        }
+    }
+
+    android.applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                outputFileName = "PayHelper_" + variant.buildType.name + "_V${defaultConfig.versionName}_${releaseTime()}.apk"
+            }
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        disable 'MissingTranslation'
+        abortOnError false
+    }
+    useLibrary 'org.apache.http.legacy'
+    productFlavors {
+    }
+}
+
+def static releaseTime() {
+    return new Date().format("HH_mm_ss", TimeZone.getDefault())
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.journeyapps:zxing-android-embedded:3.5.0'
+    implementation 'com.google.zxing:core:3.3.0'
+    implementation 'com.android.support:appcompat-v7:23.4.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'io.reactivex:rxjava:1.3.0'
+    implementation 'io.reactivex:rxandroid:1.2.1'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.0'
+    implementation 'com.squareup.okio:okio:1.17.2'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.11.0'
+    implementation 'org.java-websocket:Java-WebSocket:1.3.9'
+    implementation 'com.github.forresthopkinsa:StompProtocolAndroid:17.11.0'
+}
